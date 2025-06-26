@@ -145,7 +145,7 @@ class ChatView(FormView):
                 response.delete_cookie("get_friends")
                 return response
             except:
-                print("error")
+                return response
         else:
             members_id = request.POST.getlist('edit_friends')
             response = redirect('chat', self.kwargs['chat_pk'])
