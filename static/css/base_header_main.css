@@ -31,6 +31,9 @@
     box-sizing: border-box;
     
 }
+.favicon-icon{
+    border-radius: 1234px;
+}
 body{
     background-color:   rgba(233, 229, 238, 1);
 }
