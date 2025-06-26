@@ -133,16 +133,19 @@ class ChatView(FormView):
         # ChatView
 
         elif not request.POST.getlist('edit_friends') and not request.POST.get("chat_hidden_input"):
-            new_group_name = request.POST.get("edit_group_name")
-            new_group_avatar = request.FILES.get("edit-image-avatar")
-            group = ChatGroup.objects.get(id = self.kwargs['chat_pk'])
-            group.name = new_group_name
-            if new_group_avatar:
-                group.avatar = new_group_avatar
-            group.save()
-            response = redirect('chat', self.kwargs['chat_pk'])
-            response.delete_cookie("get_friends")
-            return response
+            try:
+                new_group_name = request.POST.get("edit_group_name")
+                new_group_avatar = request.FILES.get("edit-image-avatar")
+                group = ChatGroup.objects.get(id = self.kwargs['chat_pk'])
+                group.name = new_group_name
+                if new_group_avatar:
+                    group.avatar = new_group_avatar
+                group.save()
+                response = redirect('chat', self.kwargs['chat_pk'])
+                response.delete_cookie("get_friends")
+                return response
+            except:
+                print("error")
         else:
             members_id = request.POST.getlist('edit_friends')
             response = redirect('chat', self.kwargs['chat_pk'])
