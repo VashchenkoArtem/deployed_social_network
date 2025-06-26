@@ -119,7 +119,7 @@ ASGI_APPLICATION = 'social_network.asgi.application'
 #         'PORT': str(server.local_bind_port)
 #     }
 # }
-
+CSRF_TRUSTED_ORIGINS = ["https://disciplined-peace-production-9ac1.up.railway.app"]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
