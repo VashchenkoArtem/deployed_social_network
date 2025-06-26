@@ -132,7 +132,7 @@ class ChatView(FormView):
             response.delete_cookie('group_members')
         # ChatView
 
-        elif not request.POST.getlist('edit_friends'):
+        elif not request.POST.getlist('edit_friends') and not request.POST.get("chat_hidden_input"):
             new_group_name = request.POST.get("edit_group_name")
             new_group_avatar = request.FILES.get("edit-image-avatar")
             group = ChatGroup.objects.get(id = self.kwargs['chat_pk'])

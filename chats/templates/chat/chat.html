@@ -122,7 +122,7 @@
                 <div class = "message-and-input">
                     <div class = "messages-wrapper">
                         <div id = "messages" class="messages-class">
-                            <input type="hidden" class = "input-name" value = "{{ current_user.user.pk }}">
+                            <input type="hidden" name = "chat_hidden_input" class = "input-name" value = "{{ current_user.user.pk }}">
                         
 
                             {% for message in messages %}
