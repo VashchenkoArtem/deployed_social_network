@@ -133,6 +133,7 @@ class ChatView(FormView):
         # ChatView
 
         elif not request.POST.getlist('edit_friends') and not request.POST.get("chat_hidden_input"):
+            response = redirect('chat', self.kwargs['chat_pk'])
             try:
                 new_group_name = request.POST.get("edit_group_name")
                 new_group_avatar = request.FILES.get("edit-image-avatar")
@@ -144,7 +145,7 @@ class ChatView(FormView):
                 if new_group_name:
                     group.name = new_group_name
                     group.save()
-                response = redirect('chat', self.kwargs['chat_pk'])
+                
                 response.delete_cookie("get_friends")
                 return response
             except:
