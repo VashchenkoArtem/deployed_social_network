@@ -140,7 +140,10 @@ class ChatView(FormView):
                 group.name = new_group_name
                 if new_group_avatar:
                     group.avatar = new_group_avatar
-                group.save()
+                    group.save()
+                if new_group_name:
+                    group.name = new_group_name
+                    group.save()
                 response = redirect('chat', self.kwargs['chat_pk'])
                 response.delete_cookie("get_friends")
                 return response
