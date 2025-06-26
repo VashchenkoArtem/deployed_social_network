@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from django.urls import reverse_lazy
 from sshtunnel import SSHTunnelForwarder
+import pymysql
+pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -47,7 +49,7 @@ INSTALLED_APPS = [
     'chats'
 ]
 
-WSGI_APPLICATION = 'social_network.wsgi.application'
+# WSGI_APPLICATION = 'social_network.wsgi.application'
 # ASGI_APPLICATION = 'social_network.asgi.application'
 
 CHANNEL_LAYERS = {
@@ -84,7 +86,7 @@ TEMPLATES = [
     },
 ]
 
-# ASGI_APPLICATION = 'social_network.asgi.application'
+ASGI_APPLICATION = 'social_network.asgi.application'
 # CHANNEL_LAYERS = {
 #     "default":{
 #         "BACKEND": "channels.layers.InMemoryChannelLayer"
