@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 from django.urls import reverse_lazy
 from sshtunnel import SSHTunnelForwarder
+import os
 # import pymysql
 # pymysql.install_as_MySQLdb()
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -120,6 +121,7 @@ ASGI_APPLICATION = 'social_network.asgi.application'
 #     }
 # }
 CSRF_TRUSTED_ORIGINS = ["https://disciplined-peace-production-9ac1.up.railway.app"]
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -192,3 +194,5 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "media"
 
 LOGIN_REDIRECT_URL = reverse_lazy("authorithation")
+
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
