@@ -1,22 +1,22 @@
-from django.views.generic.edit import CreateView, DeleteView, UpdateView #
-from django.views.generic import View #
-from .forms import PostForm #
-from publications.models import Post,Image, Tag, Link #
-from .forms import PostForm, PostFormEdit #
-from settings_app.models import Profile, Friendship, Avatar #
-from django.urls import reverse_lazy #
-from django.contrib.auth.views import LogoutView #
-from django.shortcuts import redirect #
-from django.http import JsonResponse #
-from django.core import serializers #
-from django.contrib.auth.models import User #
-from .forms import UserUpdateForm #
-from chats.models import ChatGroup #
+from django.views.generic.edit import CreateView, DeleteView, UpdateView # Імпортуємо класи для створення, видалення та редагування об'єктів
+from django.views.generic import View # Імпортуємо клас для створення власних представлень
+from .forms import PostForm # Імпортуємо форму для створення постів
+from publications.models import Post,Image, Tag, Link # Імпортуємо моделі для роботи з публікаціями
+from .forms import PostForm, PostFormEdit # Імпортуємо форми для створення та редагування постів
+from settings_app.models import Profile, Friendship, Avatar # Імпортуємо моделі профілю, дружби та аватарів
+from django.urls import reverse_lazy # Імпортуємо функцію для отримання URL-адреси за назвою
+from django.contrib.auth.views import LogoutView # Імпортуємо клас для виходу з системи
+from django.shortcuts import redirect # Імпортуємо функцію для перенаправлення користувача на іншу сторінку
+from django.http import JsonResponse #Імпортуємо клас для створення JSON-відповідей
+from django.core import serializers # Імпортуємо модуль для серіалізації об'єктів
+from django.contrib.auth.models import User # Імпортуємо модель користувача
+from .forms import UserUpdateForm # Імпортуємо форму для оновлення користувача
+from chats.models import ChatGroup # Імпортуємо модель групи чату
 
-#
+# Створюємо представлення для головної сторінки, де користувач може створювати та переглянути пости.
 class MainView(CreateView):
-    template_name = "main/index.html" #
-    form_class = PostForm #
+    template_name = "main/index.html" # Вказуємо шаблон для головної сторінки
+    form_class = PostForm # Вказуємо форму для створення постів
     success_url = "/" #
     #
     def form_valid(self, form): 
