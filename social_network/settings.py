@@ -48,7 +48,7 @@ INSTALLED_APPS = [
 ]
 
 ASGI_APPLICATION = 'social_network.asgi.application'
-
+WSGI_APPLICATION = 'social_network.wsgi.application'
 CHANNEL_LAYERS = {
     "default":{
         "BACKEND": "channels.layers.InMemoryChannelLayer"
